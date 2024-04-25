@@ -34,7 +34,7 @@ class Auth:
         else:
             raise ValueError(f'User {email} already exists')
 
-    def valid_login(self, email, password) -> bool:
+    def valid_login(self, email: str, password: str) -> bool:
         """
         It should expect email and
         password required arguments and return a boolean.
