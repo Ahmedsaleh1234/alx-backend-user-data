@@ -58,3 +58,17 @@ class DB:
             return quary
         else:
             raise NoResultFound
+
+    def update_user(self, user_id, **kwargs):
+        """
+        update the user’s attributes as passed in the
+        method’s arguments then commit changes to the database.
+        """
+        session = self._session
+        user = self.find_user_by(id=user_id)
+        for key, value in kwargs.items():
+            if not hasattr(User, key):
+                raise ValueError
+
+            setattr(User, key, value)
+        session.commit()
