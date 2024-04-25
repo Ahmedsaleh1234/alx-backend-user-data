@@ -59,7 +59,7 @@ class DB:
         else:
             raise NoResultFound
 
-    def update_user(self, user_id, **kwargs):
+    def update_user(self, user_id: int, **kwargs) -> None:
         """
         update the user’s attributes as passed in the
         method’s arguments then commit changes to the database.
@@ -72,3 +72,4 @@ class DB:
 
             setattr(User, key, value)
         session.commit()
+        return None
